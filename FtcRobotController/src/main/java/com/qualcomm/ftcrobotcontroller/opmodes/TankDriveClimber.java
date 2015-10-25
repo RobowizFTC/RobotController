@@ -158,7 +158,7 @@ public class TankDriveClimber extends OpMode {
         if (gamepad1.y) {
             // if the Y button is pushed on gamepad1, decrease the position of
             // the climberServo servo.
-            climber.setPosition(Servo.MAX_POSITION / 2);
+            climber.setPosition(Servo.MAX_POSITION);
         }
 
         // update the position of the claw
