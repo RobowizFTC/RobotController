@@ -41,7 +41,7 @@ import com.qualcomm.robotcore.util.Range;
  * <p>
  * Enables control of the robot via the gamepad
  */
-public class TankDriveClimber extends OpMode {
+public class TankDriveClimberAuto extends OpMode {
 
     /*
      * Note: the configuration of the servos is such that
@@ -76,7 +76,7 @@ public class TankDriveClimber extends OpMode {
     /**
      * Constructor
      */
-    public TankDriveClimber() {
+    public TankDriveClimberAuto() {
 
     }
 
@@ -122,53 +122,33 @@ public class TankDriveClimber extends OpMode {
         clawPosition = 0.2;
 
     }
-
+    public void forward(int val) {
+        frontLeftDrive.setPower(val);
+        frontRightDrive.setPower(val);
+        backLeftDrive.setPower(val);
+        backRightDrive.setPower(val);
+    }
+    public void backwards(int val) {
+        frontLeftDrive.setPower(-val);
+        frontRightDrive.setPower(-val);
+        backLeftDrive.setPower(-val);
+        backRightDrive.setPower(-val);
+    }
+    public void turnLeft(int val) {
+        frontLeftDrive.setPower(-val);
+        frontRightDrive.setPower(val);
+        backLeftDrive.setPower(-val);
+        backRightDrive.setPower(val);
+    }
+    public void turnRight(int val) {
+        frontLeftDrive.setPower(val);
+        frontRightDrive.setPower(-val);
+        backLeftDrive.setPower(val);
+        backRightDrive.setPower(-val);
+    }
     @Override
     public void loop() {
 
-        // throttle: left_stick_y ranges from -1 to 1, where -1 is full up, and
-        // 1 is full down
-        // direction: left_stick_x ranges from -1 to 1, where -1 is full left
-        // and 1 is full right
-        float left = -gamepad1.left_stick_y;
-        float right = -gamepad1.right_stick_y;
-
-        // clip the right/left values so that the values never exceed +/- 1
-        right = Range.clip(right, -1, 1);
-        left = Range.clip(left, -1, 1);
-
-        // scale the joystick value to make it easier to control
-        // the robot more precisely at slower speeds.
-        right = (float)scaleInput(right);
-        left =  (float)scaleInput(left);
-
-        // write the values to the motors
-        frontRightDrive.setPower(right);
-        frontLeftDrive.setPower(left);
-        backRightDrive.setPower(right);
-        backLeftDrive.setPower(left);
-
-        // update the position of the climberServo.
-        if (gamepad1.a) {
-            // if the A button is pushed on gamepad1, increment the position of
-            // the climberServo servo.
-            climber.setPosition(Servo.MIN_POSITION);
-        }
-
-        if (gamepad1.y) {
-            // if the Y button is pushed on gamepad1, decrease the position of
-            // the climberServo servo.
-            climber.setPosition(Servo.MAX_POSITION);
-        }
-
-        // update the position of the claw
-        // clip the position values so that they never exceed their allowed range.
-        //armPosition = Range.clip(armPosition, ARM_MIN_RANGE,›› ARM_MAX_RANGE);
-        //clawPosition = Range.clip(clawPosition, CLAW_MIN_RANGE, CLAW_MAX_RANGE);
-
-        // write position values to the wrist and claw servo
-        //climberServo.setPosition(armPosition);
-        //claw.setPosition(clawPosition);
     }
 
 	/*
@@ -189,7 +169,7 @@ public class TankDriveClimber extends OpMode {
      */
     double scaleInput(double dVal)  {
         double[] scaleArray = { 0.0, 0.05, 0.09, 0.10, 0.12, 0.15, 0.18, 0.24,
-                0.30, 0.36, 0.43, 0.50, 0.60, 0.72, 0.85, 0.85, 0.85 };
+                0.30, 0.36, 0.43, 0.50, 0.60, 0.72, 0.85, 1.00, 1.00 };
 
         // get the corresponding index for the scaleInput array.
         int index = (int) (dVal * 16.0);
