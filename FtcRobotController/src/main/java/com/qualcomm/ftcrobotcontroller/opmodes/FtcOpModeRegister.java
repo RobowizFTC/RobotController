@@ -73,9 +73,9 @@ public class FtcOpModeRegister implements OpModeRegister {
     manager.register("MR Gyro Test", MRGyroTest.class);
 
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
     
-=======
+//=======
     //manager.register("IrSeekerOp", IrSeekerOp.class);
     //manager.register("CompassCalibration", CompassCalibration.class);
     //manager.register("I2cAddressChangeExample", LinearI2cAddressChange.class);
@@ -99,6 +99,6 @@ public class FtcOpModeRegister implements OpModeRegister {
     //manager.register("PushBotDriveTouch", PushBotDriveTouch.java);
     //manager.register("PushBotIrSeek", PushBotIrSeek.java);
     //manager.register("PushBotSquare", PushBotSquare.java);
->>>>>>> 5ea8a8bc50f95c6436412df0f49f8ffa44d267fc
+    //>>>>>>> 5ea8a8bc50f95c6436412df0f49f8ffa44d267fc
   }
 }
