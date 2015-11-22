@@ -70,6 +70,7 @@ public class TankDriveClimber extends OpMode {
     DcMotor frontRightDrive;
     DcMotor backLeftDrive;
     DcMotor backRightDrive;
+    //DcMotor middleHookWheel;
     Servo climber;
     int i = 0;
 
@@ -112,6 +113,7 @@ public class TankDriveClimber extends OpMode {
         frontLeftDrive = hardwareMap.dcMotor.get("frontLeftDrive");
         frontLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         climber = hardwareMap.servo.get("climberServo");
+        //middleHookWheel = hardwareMap.dcMotor.get("middle");
         //motorFrontLeft.setDirection(DcMotor.Direction.REVERSE);*
 		
 		/*climberServo = hardwareMap.servo.get("servo_1");
@@ -145,8 +147,10 @@ public class TankDriveClimber extends OpMode {
         // write the values to the motors
         frontRightDrive.setPower(right);
         frontLeftDrive.setPower(left);
+        //middleHookWheel.setPower(right);
         backRightDrive.setPower(right);
         backLeftDrive.setPower(left);
+       // middleHookWheel.setPower(right);
 
         // update the position of the climberServo.
         if (gamepad1.a) {
