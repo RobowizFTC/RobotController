@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 /**
  * Created by Darsh on 11/22/15.
  */
-public class TankDriverClimberLinearAutoBlue extends LinearOpMode {
+public class TankDriveClimberLinearAutoBlue extends LinearOpMode {
     DcMotor backLeftDrive;
     DcMotor backRightDrive;
     DcMotor frontLeftDrive;
