@@ -49,11 +49,11 @@ public class TankDriveClimberLinearAutoRed extends LinearOpMode {
         climber = hardwareMap.servo.get("climberServo");
         climber.setPosition(Servo.MIN_POSITION);
         waitForStart();
-        forward(60);
+        forward(.60);
         sleep(1000);
-        turnLeft(60);
+        turnLeft(.60);
         sleep(400);
-        forward(60);
+        forward(.60);
         sleep(1000);
 
     }
