@@ -14,25 +14,25 @@ public class TankDriveClimberLinearAutoRed extends LinearOpMode {
     DcMotor frontLeftDrive;
     DcMotor frontRightDrive;
     Servo climber;
-    public void forward(int val) {
+    public void forward(double val) {
         frontLeftDrive.setPower(val);
         frontRightDrive.setPower(val);
         backLeftDrive.setPower(val);
         backRightDrive.setPower(val);
     }
-    public void backwards(int val) {
+    public void backwards(double val) {
         frontLeftDrive.setPower(-val);
         frontRightDrive.setPower(-val);
         backLeftDrive.setPower(-val);
         backRightDrive.setPower(-val);
     }
-    public void turnLeft(int val) {
+    public void turnLeft(double val) {
         frontLeftDrive.setPower(-val);
         frontRightDrive.setPower(val);
         backLeftDrive.setPower(-val);
         backRightDrive.setPower(val);
     }
-    public void turnRight(int val) {
+    public void turnRight(double val) {
         frontLeftDrive.setPower(val);
         frontRightDrive.setPower(-val);
         backLeftDrive.setPower(val);

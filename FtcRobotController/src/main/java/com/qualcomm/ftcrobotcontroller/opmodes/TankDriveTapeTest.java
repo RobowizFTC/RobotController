@@ -42,7 +42,7 @@ public class TankDriveTapeTest extends OpMode{
     /**
      * Constructor
      */
-    public TankDriveClimber() {
+    public TankDriveTapeTest() {
 
     }
 
@@ -132,11 +132,11 @@ public class TankDriveTapeTest extends OpMode{
         }
 
         if (gamepad1.right_bumper) {
-            adjustAngle.setPower(.1);
+            angleAdjust.setPower(.1);
         }
 
         if (gamepad1.left_bumper) {
-            adjustAngle.setPower(-.1);
+            angleAdjust.setPower(-.1);
         }
 
         if (gamepad1.right_trigger >= .3) {
